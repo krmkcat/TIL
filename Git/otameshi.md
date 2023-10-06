@@ -2,8 +2,8 @@
 ## 見出し2
 ### 見出し3
 
-[]Todo
-[x]Done
+- [ ] Todo
+- [x] Done
 
 ```rb
 @user = User.find(1)
