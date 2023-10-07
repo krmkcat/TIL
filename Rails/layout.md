@@ -27,4 +27,5 @@ layout 'user'
 ```
 
 ### 参考リンク
+<https://railsguides.jp/layouts_and_rendering.html#%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B>
 <https://qiita.com/d0ne1s/items/6f34ae8031bd41085079>
