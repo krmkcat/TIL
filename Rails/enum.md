@@ -28,3 +28,4 @@ task = Task.first
 task.done!
 # taskのstatusをdoneに変更
 ```
+いずれも属性名（上記例ではstatus）はつけないので注意。
