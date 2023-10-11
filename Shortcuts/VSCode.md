@@ -14,3 +14,7 @@
 - 上に行を挿入：Shift + Command + Enter
 - 対の括弧にジャンプ：Shift + Command + \
 - 矩形選択：Shift + Option + Command + 矢印
+
+## 参考リンク
+- <https://skillhub.jp/blogs/234>
+- <https://qiita.com/12345/items/64f4372fbca041e949d0>
