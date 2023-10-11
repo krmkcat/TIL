@@ -4,4 +4,3 @@
 ```shell
 $ cd "Project Files"
 ```
-草が生えるか確認するためこの一文を変更。
