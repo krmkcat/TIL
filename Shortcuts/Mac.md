@@ -7,4 +7,3 @@
 
 # Safari
 - Command + 矢印：ブラウザの戻る・進む
-
