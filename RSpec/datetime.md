@@ -1,0 +1,8 @@
+# 日時について
+
+- `datetime_field`に値を入力したい場合は、`fill_in 'フィールド名', with: 値`とすればOK
+- RSpecで日時の表記などをテスト項目にする際は、`strftime`メソッドを使って文字列に変換する必要がある。
+- `datetime_field`に指定の日時を入力する場合の例↓
+```rb
+fill_in 'Deadline',  with: Time.new(2024,10,21,14,30).strftime('%Y-%m-%d %H:%M')
+```

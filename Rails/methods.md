@@ -16,3 +16,8 @@ Admin::UsersController.controller_path
 
 ## invert
 ハッシュのキーを値に、値をキーに変換する。
+
+## strftime(format)
+- 時刻を指定したフォーマットに沿って変換し文字列として返す
+### 参考リンク
+<https://docs.ruby-lang.org/ja/latest/method/Time/i/strftime.html>
