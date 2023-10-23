@@ -21,3 +21,7 @@ Admin::UsersController.controller_path
 - 時刻を指定したフォーマットに沿って変換し文字列として返す
 ### 参考リンク
 <https://docs.ruby-lang.org/ja/latest/method/Time/i/strftime.html>
+
+## where
+- 条件にあうレコードをすべて取得し`ActiveRecord::Relation`という配列のようなものをつくる
+- そのため、whereで取得したオブジェクトに対して`destroy`メソッドは使えない。やるなら`destroy_all`
