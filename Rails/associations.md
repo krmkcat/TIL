@@ -17,3 +17,7 @@ Like.create(user: userオブジェクト, board: boardオブジェクト)
 # ↓と同じ意味になる
 Like.create(user_id: userオブジェクト.id, board_id: boardオブジェクト.id)
 ```
+
+## 便利なメソッド
+### build_関連名
+関連オブジェクトを生成する
