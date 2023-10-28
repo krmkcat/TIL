@@ -21,3 +21,7 @@ Like.create(user_id: userオブジェクト.id, board_id: boardオブジェク�
 ## 便利なメソッド
 ### build_関連名
 関連オブジェクトを生成する
+
+### includes(関連名)
+- 関連テーブルを含めて呼び出す。イメージとしては関連テーブルを結合する感じ
+- ActiveRecord::Relation（`Post`とか`User`とか）に対して使うメソッドであり、モデルインスタンスに対しては使えないので注意！
