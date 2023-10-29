@@ -2,8 +2,8 @@
 
 ## 検索フォームの基本
 ```erb
-<%= search_form_for @q, url: 送信先URL do |f| do %>
-  
+<%= search_form_for @q, url: 送信先URL do |f| %>
+
   <!-- ワード検索 -->
   <%= f.search_field :検索対象と条件, placeholder: テキスト%>
 
@@ -27,3 +27,7 @@
   - `map`メソッド（既存のハッシュを加工して`[[表示する文字列, 保存する値], ...]`という形の新たなハッシュを作る）
 ### 参考リンク
   <https://qiita.com/mmaumtjgj/items/34117cd07e9b7aa72585>
+
+## 検索フォームが複数のページで評される場合の注意
+- ransackの検索フォームが複数のページで表示されるようになっている場合は、 **Ransack::Searchオブジェクト（ @q 等）が、表示されるページ（アクション）できちんと定義されているかに注意！** されていないと「ArgumentError in Posts#index　No Ransack::Search object was provided to search_form_for!」というエラーが出る。
+- 複数どころか全部のページで表示するよ！という場合は ApplicationController で定義して before_action に設定してしまえばOK
