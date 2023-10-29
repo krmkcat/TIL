@@ -46,3 +46,9 @@ Admin::UsersController.controller_path
  # => "a,b,c"
  ```
 
+## find_or_create_by(条件)
+- モデル（正確にはActiveRecord::Relations？）に対して使う
+- 条件に当てはまるレコードがあれば取得し、なければ生成＆保存する
+
+## find_or_initialize_by(条件)
+- 上記`find_or_create_by`の保存しない版
