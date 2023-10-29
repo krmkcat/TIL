@@ -7,3 +7,6 @@
 
 # Safari
 - Command + 矢印：ブラウザの戻る・進む
+
+# ウィンドウ切り替え
+- Command + @
