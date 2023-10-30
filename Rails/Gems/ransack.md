@@ -31,3 +31,9 @@
 ## 検索フォームが複数のページで評される場合の注意
 - ransackの検索フォームが複数のページで表示されるようになっている場合は、 **Ransack::Searchオブジェクト（ @q 等）が、表示されるページ（アクション）できちんと定義されているかに注意！** されていないと「ArgumentError in Posts#index　No Ransack::Search object was provided to search_form_for!」というエラーが出る。
 - 複数どころか全部のページで表示するよ！という場合は ApplicationController で定義して before_action に設定してしまえばOK
+
+## 検索リンク
+- フォームを使わず、用意されたリンクをクリックすることで検索を行いたい場合、以下のように書くことで実装できる
+```rb
+<%= link_to tag.name, posts_path(q: { tags_name_eq: tag.name }) %>
+```
