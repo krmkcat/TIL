@@ -1,64 +1,38 @@
 # メソッド
 
-## controller_path
-- コントローラのパスを返す
-```rb
-Admin::UsersController.controller_path
-# =>'admin/users'
-```
-- レシーバなしの場合は現在のページのコントローラを返す
+<details>
+  <summary>文字列関連</summary>
 
-## any?
-- 配列などのコレクションの要素に1つでも真があればtrueを返し、全ての要素が偽ならfalseを返すメソッド
-- ブロックを伴う場合は、各要素に対してブロックを評価し、すべての結果が偽である場合にfalseを、一つでも真があればtrueを返す。
-### 参考リンク
-  <https://docs.ruby-lang.org/ja/latest/method/Enumerable/i/any=3f.html>
+  ## split
+  - 文字列に対して使う
+  - 文字列を半角スペースを区切りとして配列に変換する
+  - 引数として半角スペース以外のセパレータ（区切り文字）を指定することもできる
+  ```rb
+  'a,b,c'.split(',')
+  # => [a, b, c]
+  ```
+</details>
 
-## invert
-ハッシュのキーを値に、値をキーに変換する。
+<details>
+  <summary>その他</summary>
 
-## strftime(format)
-- 時刻を指定したフォーマットに沿って変換し文字列として返す
-### 参考リンク
-<https://docs.ruby-lang.org/ja/latest/method/Time/i/strftime.html>
+  ## controller_path
+  - コントローラのパスを返す
+    ```rb
+    Admin::UsersController.controller_path
+    # =>'admin/users'
+    ```
+  - レシーバなしの場合は現在のページのコントローラを返す
 
-## where
-- 条件にあうレコードをすべて取得し`ActiveRecord::Relation`という配列のようなものをつくる
-- そのため、whereで取得したオブジェクトに対して`destroy`メソッドは使えない。やるなら`destroy_all`
+  ## is_a?(クラスやモジュール)
+  - 引数がクラスである場合、レシーバーであるオブジェクトが指定したクラスもしくはそのサブクラスのインスタンである場合にtrue、そうでければfalseを返す
+  - 引数がモジュールである場合、レシーバーであるオブジェクトが指定したモジュールを含むクラスもしくはそのサブクラスのインスタンスである場合にtrue、そうでなければfalseを返す
 
-## attribute_accessor
-「同名のインスタンス変数を戻り値とするメソッドを定義」「同名のインスタンス変数に値を代入するメソッドを定義」を同時に行う。
-モデルクラスにこれを設定すると、DBとは紐づかない属性を付与することができる。
+  ## strftime(format)
+  - 時刻を指定したフォーマットに沿って変換し文字列として返す
+  ### 参考リンク
+  <https://docs.ruby-lang.org/ja/latest/method/Time/i/strftime.html>
 
-## map
-- 配列に対して使用する
-- `map{ |変数| 処理 }`とすることで、配列の各要素に対して処理をほどこし、その結果で新しい配列を作る
-
-## split
-- 文字列に対して使う
-- 文字列を半角スペースを区切りとして配列に変換する
-- 引数として半角スペース以外のセパレータ（区切り文字）を指定することもできる
-```rb
-'a,b,c'.split(',')
-# => [a, b, c]
-```
-
-## join
-- 配列に対して使う
-- 配列の要素をすべてつなげて文字列に変換する
-- 引数としてセパレータ（区切り文字）を渡すこともできる
-- `split`の逆のイメージ
- ```rb
- [a, b, c].join
- # => 'abc'
-
- [a, b, c].join(',')
- # => 'a,b,c'
- ```
-
-## find_or_create_by(条件)
-- モデル（正確にはActiveRecord::Relations？）に対して使う
-- 条件に当てはまるレコードがあれば取得し、なければ生成＆保存する
-
-## find_or_initialize_by(条件)
-- 上記`find_or_create_by`の保存しない版
+  ## invert
+  - ハッシュのキーを値に、値をキーに変換する。
+</details>
