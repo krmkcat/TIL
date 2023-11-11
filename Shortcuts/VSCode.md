@@ -4,6 +4,8 @@
 - エクスプローラーを開く：Shift + Command + E
 - QuickOpen：Command + P
 - …からの新しいタブでファイルを開く：Shift + Enter
+- 画面全体を縮小：Command + _
+- 画面全体を拡大：Command + Shift + +
 
 ## 入力系
 - 選択行の移動：Option + 矢印
