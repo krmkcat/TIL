@@ -1,8 +1,24 @@
 # マッチャーについて
 
-## have_field
-- 条件を満たすフィールドがあるか確認する
-- `have_field('フィールド名', with: 値)`とすることで、'値'が入力された'フィールド名'というフィールドがあるかどうかを確認してくれる
+## eq
+- `eq(指定の値)`とすることで指定した値に等しいか確認する
+
+## be系
+- `be true`：trueかどうか確認する
+- `be false`：falseかどうか確認する
+- `be_nil`：nilかどうか確認する。アンダーバーが必要なので注意
+- `be_empty`：配列や文字列、ハッシュ等が空であるかどうかを確認する
+- `be_valid`：オブジェクトがバリデーションに通るかどうか確認する
+- `be_invalid`：`be_valid`の逆
+
+
+## have系
+
+### have_content
+- `have_content('文字列')`で、指定の文字列を含む要素が存在するか確認する
+
+### have_field
+- `have_field('フィールド名', with: 値)`で、指定の値が入力された指定の名前のフィールドがあるかどうかを確認する
 ```rb
 # 例
 expect(page).to have_filed('Email', with: other_user.email)
