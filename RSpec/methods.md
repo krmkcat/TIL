@@ -27,7 +27,7 @@ expect(テスト対象).to マッチャー(期待する値)
 - `fill_in 'ラベル名等', with: '値'`で、指定のフィールドに指定の値を入力する
 
 ### find
-- `find('値')`で、指定の値の要素を探す。値の指定方法はCSS準拠？？
+- `find('セレクタ')`で、指定したセレクタの要素を探す。
   ```rb
   # 例。classがtitleの要素を探す
   find('.title')
@@ -45,3 +45,12 @@ expect(page.accept_confirm).to eq "本当に削除しますか？"
 #### 参考リンク
 <https://www.rubydoc.info/github/jnicklas/capybara/Capybara/Session:accept_confirm>
 <https://qiita.com/st5e_jp/items/37b3fbfc7ec747f13e8f>
+
+### within
+- `within('セレクタ') { ブロック }`でセレクタを指定してブロック内の処理を行える
+```rb
+# 例。classがbreadcrumbの要素に対しブロック内の処理を実行
+within('.breadcrumb') do
+  expect(page).to have_content('タグ')
+end
+```
