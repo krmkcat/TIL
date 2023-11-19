@@ -23,3 +23,7 @@
 # 例
 expect(page).to have_filed('Email', with: other_user.email)
 ```
+
+### have_select
+- `have_select('セレクトボックス名', selected: 値)`で、指定の値が選択された指定の名前のセレクトボックスがあるかどうかを確認する。
+- セレクトボックス名は`id`や`name`属性で指定
