@@ -32,11 +32,4 @@
   - 時刻を指定したフォーマットに沿って変換し文字列として返す
   ### 参考リンク
   <https://docs.ruby-lang.org/ja/latest/method/Time/i/strftime.html>
-
-  ## invert
-  - ハッシュのキーを値に、値をキーに変換する。
-
-  ## except(:キー)
-  - ハッシュに対して使う
-  - 引数で指定したキーと値の組み合わせを除外したハッシュを返す
 </details>
