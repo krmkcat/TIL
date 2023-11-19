@@ -40,5 +40,9 @@ Rails応用4
 1.5h
 
 11/18
-Rails応用5
+Rails応用4
 9h
+
+11/19
+Rails応用4
+7.5h
