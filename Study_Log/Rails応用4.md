@@ -346,3 +346,38 @@ OK〜〜！できた！
 次にspecファイルを用意する。ここはロボらんてくん方式で`spec/tasks`ディレクトリを作成してそこに`articles_publish_spec.rb`を作ることにする。
 
 できた。今日はここまで。明日はファイルの中身を作っていく。
+
+# 2023.11.20
+rakeタスクのテストファイルを作る。
+
+この記事も参考にしよう。  
+[参考リンク](https://dev.classmethod.jp/articles/ruby-on-rails_rspec_rake_test/)
+
+見様見真似でとりあえず作ってみたのでさっそく走らせてみよう。
+
+SyntaxErrorだ。ロボらんてくんに教えてもらったコードの中の'>'が引っかかってるな。
+`rake_helper`に記述したコードがあればそこのコードが要らない気がするので消してみる。
+あと`Rake::Task.define_task(:environment)`もいらないっぽい。というかそのためにわざわざ`rake_helper`を作ってあのコードを書いてたんだな。
+
+よし、整理した。結局最初に見た記事の通りになったな。これでもう一回走らせてみよう。
+
+よーし全部書けたし通った！今度こそプルリクする。
+
+Lintチェックで引っかかったんだけど、3つ中2つは知らないやつだ。まず分かるやつを先に直してから、ほか2つが何なのか調べよう。
+
+`Metrics/AbcSize: Assignment Branch Condition size for update is too high.`については、どうやら「（縦に）長すぎ！」ってことらしい。
+`admin/articles/publishes`コントローラの`update`アクションが冗長すぎるってことみたいね。なるほどここでFatControllerの解消っていうテーマが出てくるわけか。
+
+`Metrics/PerceivedComplexity: Perceived complexity for update is too high.`については、「分岐多すぎ複雑過ぎ！」ってことらしい。
+同じく`admin/articles/publishes`コントローラの`update`アクションが引っかかってるな。
+
+まあ要するに「`admin/articles/publishes`コントローラの`update`アクションをもっと簡潔に！」ってことだな。ロボらんてくんの力も借りつつダイエットに励むか。
+
+## updateダイエット
+まずこのupdateアクションの構成としては、
+
+- 公開日が過去か未来かで分岐
+- 更に保存成功パターンと失敗パターンで分岐
+
+ってことで4つに枝分かれしてる。これ自体は多分これ以上減らせないので、切り出せるとこ切り出してこいう。
+今日はここまで。明日はひたすらダイエット！
