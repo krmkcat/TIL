@@ -32,4 +32,8 @@
   - 時刻を指定したフォーマットに沿って変換し文字列として返す
   ### 参考リンク
   <https://docs.ruby-lang.org/ja/latest/method/Time/i/strftime.html>
+
+  ## attribute_accessor
+  「同名のインスタンス変数を戻り値とするメソッドを定義」「同名のインスタンス変数に値を代入するメソッドを定義」を同時に行う。  
+  モデルクラスにこれを設定すると、DBとは紐づかない属性を付与することができる。
 </details>

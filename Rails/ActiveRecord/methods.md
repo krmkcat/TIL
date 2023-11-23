@@ -53,10 +53,6 @@
   モデル.where('カラム名 not LIKE?', '検索したい文字列')
   ```
 
-## attribute_accessor
-「同名のインスタンス変数を戻り値とするメソッドを定義」「同名のインスタンス変数に値を代入するメソッドを定義」を同時に行う。
-モデルクラスにこれを設定すると、DBとは紐づかない属性を付与することができる。
-
 ## find_or_create_by(条件)
 - モデル（正確にはActiveRecord::Relations？）に対して使う
 - 条件に当てはまるレコードがあれば取得し、なければ生成＆保存する
@@ -71,3 +67,17 @@
 - 容量の大きくない（目安として1000件以下？）データを処理するなら`each`でOK
 - [参考リンク](https://pikawaka.com/rails/find_each)  
   [Railsドキュメント](https://railsdoc.com/page/find_each)
+
+## assign_attributes(ハッシュ)
+- 特定の属性（複数可）の値を変更するメソッド
+- 変更したい属性と値の組み合わせハッシュを引数として渡す
+- ただしセットされるだけでDBへの保存はされない。したければ別途`save`メソッドを使用すること
+- [参考リンク](https://terakura-aina.hatenablog.com/entry/2020/12/03/112326)
+
+## update_attributes(ハッシュ)
+- 上記`assign_attributes`の保存する版
+- 単なる`update`との違いは引数の渡し方と、`update_attributes`はバリデーションチェックがされない点
+- [参考リンク](https://terakura-aina.hatenablog.com/entry/2020/12/03/112326)
+
+## 【番外】関連性の高いメソッド
+- [`attribute_accessor`](../methods.md#attribute_accessor)
