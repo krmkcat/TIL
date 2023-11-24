@@ -79,5 +79,14 @@
 - 単なる`update`との違いは引数の渡し方と、`update_attributes`はバリデーションチェックがされない点
 - [参考リンク](https://terakura-aina.hatenablog.com/entry/2020/12/03/112326)
 
+## pluck(:カラム名)
+- モデルに対して使う
+- 引数で指定したカラムの値をすべて取得し配列を作る
+- 引数を複数指定すると、二次元配列を返す
+  ```rb
+  User.pluck(:id, :name)
+  # => [[1, "クロ"], [2, "ミケ"]]
+  ```
+
 ## 【番外】関連性の高いメソッド
 - [`attribute_accessor`](../methods.md#attribute_accessor)
