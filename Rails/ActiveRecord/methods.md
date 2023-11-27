@@ -52,6 +52,11 @@
   ```rb
   モデル.where('カラム名 not LIKE?', '検索したい文字列')
   ```
+- `joins`を使って結合したテーブルの属性を使いたい場合はこのような書き方になる
+  ```rb
+  # 例
+  Article.joins(:tags).where(tags: { name: 'tag1' })
+  ```
 
 ## find_or_create_by(条件)
 - モデル（正確にはActiveRecord::Relations？）に対して使う
@@ -87,6 +92,11 @@
   User.pluck(:id, :name)
   # => [[1, "クロ"], [2, "ミケ"]]
   ```
+
+## distinct
+- レコードの重複を取り除く
+- `distinct`を呼び出した時点で重複を取り除くのではなく、発行されるSQL文が`SELECT DISTINCT * ...`になる
+- そのため、`distinct`の後に`where`などをメソッドチェーンしても、きちんと最終的な結果から重複レコードを取り除いたオブジェクトが返る
 
 ## 【番外】関連性の高いメソッド
 - [`attribute_accessor`](../methods.md#attribute_accessor)
