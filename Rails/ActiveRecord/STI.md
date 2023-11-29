@@ -14,7 +14,7 @@
   - 犬を表すDogモデル
   - 鳥を表すBirdモデル
 
-まず各疑似テーブルのベースとなる共通テーブルを生成する。必ず`type:string`をつけること。
+まず各疑似テーブルのベースとなる共通テーブルを生成する。データ型が`string`の`type`カラムを必ずもたせること。
 ```shell
 $ rails g model Animals type:string name:string age:integer
 ```
