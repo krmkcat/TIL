@@ -54,3 +54,8 @@ within('.breadcrumb') do
   expect(page).to have_content('タグ')
 end
 ```
+
+## その他
+### status_code
+- `page.status_code`とすることで現在のページのステータスコードを取得できる
+- `expect(page.status_code).to eq(ステータスコード)`で現在のページのステータスコードが指定のものであるか確認できる

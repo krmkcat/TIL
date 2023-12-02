@@ -30,3 +30,7 @@ expect(page).to have_filed('Email', with: other_user.email)
 
 ### have_selector
 - `have_selector('文字列')`で、指定のセレクタを含む要素が存在するか確認する
+
+### have_http_status
+- ドライバーによってはサポートしておらず使えないので注意（RackTestなら使える）
+- `have_http_status(ステータスコード)`でステータスコードが指定のものであるか確認できる
