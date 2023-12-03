@@ -18,6 +18,7 @@
 - 上に行を挿入：Shift + Command + Enter
 - 対の括弧にジャンプ：Shift + Command + \
 - 矩形選択：Shift + Option + Command + 矢印
+- チェックを入れる/外す：Option + C
 
 ## 参考リンク
 - <https://skillhub.jp/blogs/234>
