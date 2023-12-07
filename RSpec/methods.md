@@ -55,7 +55,16 @@ within('.breadcrumb') do
 end
 ```
 
+### choose
+- `choose '選択肢'`で指定したラジオボタンを選択
+
+### attach_file
+- `attach_file 'フィールド名等', ファイルパス`で指定したファイル選択フィールドで指定したファイルを選択
+
 ## その他
 ### status_code
 - `page.status_code`とすることで現在のページのステータスコードを取得できる
 - `expect(page.status_code).to eq(ステータスコード)`で現在のページのステータスコードが指定のものであるか確認できる
+
+## 参考リンク
+- [参考記事](https://easyramble.com/form-tests-with-capybara.html)

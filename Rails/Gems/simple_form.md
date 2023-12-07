@@ -27,7 +27,8 @@ gem 'simple_form'
 
 ### フィールドの生成について
 - 基本的には`f.input :カラム名`とすれば、各カラムのデータ型を元に最適なフィールドを生成してくれる。
-- `class`を指定したい場合、単純に`class: 'クラス名'`としてもいいが、それでだめな場合は`input_html: { class: 'クラス名' }`とする
+- HTMLオプションを指定したい場合は`input_html: { 属性: 値 }`とする。  
+  例：`input_html: { data: { turbo_method: 'delete' } }`
 - ファイルフィールドにしたい場合は`as: :file`を付ける
 - ラジオボタンにしたい場合は`f.input_field :カラム名, as: :radio_buttons`とする
 - セレクトボックスにしたい場合は`collection: 選択肢の配列`とする。（`collection`オプションが渡された場合はデフォルトでセレクトボックスになる）
