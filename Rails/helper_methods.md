@@ -14,3 +14,26 @@
 - あるパーシャルで特定の変数が渡されたかどうかをチェックできる
 ### 参考リンク
 <https://wild-outdoorlife.com/ruby-on-rails/local_assigns/>
+
+## content_tag
+- 以下のように記述するとHTMLタグを生成できる
+  ```rb
+  content_tag(:要素, 'コンテンツ', オプション...)
+
+  # 例
+  content_tag(:p, 'テキスト', class: 'test-text')
+  # =>
+  # <p class="test-text">テキスト</p>
+  ```
+- ブロックを使って入れ子にすることもできる
+  ```rb
+  content_tag(:div, id: 'text1') do
+    content_tag(:p, 'テキスト1', class: 'test-text')
+  end
+
+  # =>
+  # <div id="text1">
+  #   <p class="test-text">テキスト1</p>
+  # </div>
+  ```
+- コンテンツなしの場合は第2引数を`nil`にすること。`nil`を書かずにオプションを書くとおかしなことになる
