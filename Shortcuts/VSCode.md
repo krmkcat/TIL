@@ -19,6 +19,7 @@
 - 対の括弧にジャンプ：Shift + Command + \
 - 矩形選択：Shift + Option + Command + 矢印
 - チェックを入れる/外す：Option + C
+- コメントアウト：Command + /
 
 ## 参考リンク
 - <https://skillhub.jp/blogs/234>
