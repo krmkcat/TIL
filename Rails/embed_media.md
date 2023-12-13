@@ -28,5 +28,6 @@
     <a href="変換済のツイートURL"></a>
   </blockquote>
 </div>
-
 ```
+### 参考リンク
+- [ツイートの埋め込みと枠配置のアレンジ](https://ameblo.jp/personwritep/entry-12622203736.html)
