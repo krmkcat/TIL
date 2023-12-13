@@ -26,3 +26,18 @@ end
 ### 参考リンク
 - [Rubyリファレンスマニュアル](https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#case)
 - [参考記事](https://www.javadrive.jp/ruby/if/index9.html)
+
+## slice
+- `slice(抜き出す文字列を指定)`で文字列から特定の部分を抜き出すことができる
+- 抜き出す文字列の指定には数値（範囲指定OK）、文字列、正規表現が使える
+- 単に`[抜き出す文字列を指定]`という記法もある
+```rb
+p = 'ruby'
+p.slice('ru') # => "ru"
+p.slice(/by/) # => "by"
+p[0..2] # => "rub"
+```
+
+## sub
+- `文字列.sub(正規表現, '変換後の文字列')`で正規表現にマッチする最初の箇所を別の文字列に置換できる
+- マッチした部分をすべて一括置換したい場合は`gsub`を使う
