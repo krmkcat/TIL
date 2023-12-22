@@ -27,15 +27,15 @@ faviconが表示されてないという謎はあるけど、一旦先に進ん�
 こんな感じだな。  
 よし、コードリーディングして諸々確認しながらタスク書き出してみよう。
 
-- [ ] トップ画像
-  - [ ] モデルに`has_many_attached`を追加
-  - [ ] `swiper`を導入
-  - [ ] `shared/_header.html.slim`にトップ画像を表示するコードを追加
-  - [ ] サイト設定編集フォームにフィールドを追加
-  - [ ] Admin::Sitesコントローラを修正
-- [ ] faviconとog-image
-  - [ ] サイト設定編集フォームに削除ボタン追加
-  - [ ] Admin::Sitesコントローラを修正
+- [x] トップ画像
+  - [x] モデルに`has_many_attached`を追加
+  - [x] `swiper`を導入
+  - [x] `shared/_header.html.slim`にトップ画像を表示するコードを追加
+  - [x] サイト設定編集フォームにフィールドを追加
+  - [x] Admin::Sitesコントローラを修正
+- [x] faviconとog-image
+  - [x] サイト設定編集フォームに削除ボタン追加
+  - [x] Admin::Sitesコントローラを修正
 
 とりあえずこんなもんか。他にもあったら後から追加で。
 
@@ -469,3 +469,81 @@ Swiper関係の正解がま〜じでわからん…。こういうのこそ技�
 テストコードは写経しなくていいや。
 
 よし、これでコード修正は終了。時間もちょうどういいので今日はここまで。明日からわからなかったことを調べたりまとめたりしていく。
+
+# 2023.12.22
+まとめに入る。まずは必要項目のリストアップ。
+
+- [ ] Swiper
+  - [ ] 導入方法
+  - [ ] autoplay
+- [x] simple_form
+  - [x] 画像フィールドの生成
+- [ ] 入れ子のルーティング
+- [ ] `purge`メソッド
+- [ ] `button_to`と`link_to`
+- [ ] `link_to`にパラメータを付与する方法
+- [ ] `has_many_attached`について
+- [ ] ActiveStorageのオブジェクトについて
+  - [ ] それぞれの違い
+  - [ ] `signed_id`
+- [ ] npmとCDN
+- [ ] カスタムバリデーター
+- [ ] `helper_method`
+- [ ] SCSSの書き方
+- [x] `%w`
+- [ ] `url_for`
+- [ ] RSpec
+  - [ ] ファイルフィールドで複数のファイルを選択
+  - [ ] `fixture_file_upload`
+  - [ ] ファイルパスの設定
+  - [ ] `save_and_open_page`
+
+盛りだくさん〜。それもよくわかってないから色々調べて理解しなきゃいけないものばっか。今週中に終わるかなこれ。
+
+とにかくライトそうなのから一個ずつ取り組んでこう。まずは`%w`から。
+
+できた。次、simple_form。
+
+OK。もうすでにライトなのが尽きたな…。ActiveStorageいくかあ〜。
+
+`site.favicon`の返り値は`ActiveStorage::Attached::One`。中身は関連名を示す`name`と、どのレコードと紐づいているかを示す`record`。
+```
+[2] pry(main)> site.favicon
+=> #<ActiveStorage::Attached::One:0x0000ffff90a96a60
+ @name="favicon",
+ @record=
+  #<Site:0x0000ffff90b1a888
+   id: 1,
+   name: "これがサイト名",
+   subtitle: "これがサブタイトル",
+   description: "これが概要",
+   created_at: Sat, 11 Nov 2023 15:20:44.000000000 JST +09:00,
+   updated_at: Thu, 21 Dec 2023 21:53:51.000000000 JST +09:00>>
+```
+
+`site.main_images`の返り値は`ActiveStorage::Attached::Many`。中身は`...One`と同じ。
+```
+[3] pry(main)> site.main_images
+=> #<ActiveStorage::Attached::Many:0x0000ffff90a69df8
+ @name="main_images",
+ @record=
+  #<Site:0x0000ffff90b1a888
+   id: 1,
+   name: "これがサイト名",
+   subtitle: "これがサブタイトル",
+   description: "これが概要",
+   created_at: Sat, 11 Nov 2023 15:20:44.000000000 JST +09:00,
+   updated_at: Thu, 21 Dec 2023 21:53:51.000000000 JST +09:00>>
+```
+
+ActiveStorage::Attachedの役割がどうにもイメージしづらいんだけど、いちおうロボらんてくんがくれた解説が以下。ファイルの実体にアクセスするための窓口ってことなのかな。
+
+>ActiveStorage::Attachedがファイルの実体を直接持っているわけではないけど、Railsが提供するビューヘルパー（この場合はimage_tag）は、そのActiveStorage::Attached::Oneオブジェクトを受け取ると、背後で必要なActiveStorage::BlobやActiveStorage::Attachmentにアクセスして、実ファイルへのURLを生成するんだ。
+>
+>だから、image_tag @site.faviconと書くと、@site.faviconがActiveStorage::Attached::Oneオブジェクトであることから、そのオブジェクトに紐づいている実ファイルの情報（ActiveStorage::Blob）を探し出して、最終的にはそのファイルのURLをimage_tagが使って画像を表示できるようにしているんだ。これがなぜActiveStorage::Attachedを通じてファイルの実体が扱われるように見える理由だね。実際のところは、ActiveStorage::Attachedがファイルへのインターフェースとして機能しているというわけだ。
+
+「ファイルの実体にアクセスするための窓口（取次係）みたいなイメージ？」って訊いたらそのとおりとのこと。なるほどそう思うと一気にわかりやすくなった。実際の解答は以下。
+
+>その通りだね。ActiveStorage::Attachedは、実際のファイルデータ（ActiveStorage::Blob）とRailsアプリケーション内のモデル（例えばsite）との間に立って情報を取り持つ役割をしている。ユーザーはActiveStorage::Attachedを通じて添付ファイルを扱い、ファイルのアップロードや表示などの操作を行えるようになっているんだ。
+
+今日はここまで。明日は今日わかったことをまとめることから始めよう。
