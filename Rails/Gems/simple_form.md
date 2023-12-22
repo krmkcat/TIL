@@ -32,7 +32,9 @@ gem 'simple_form'
 - ファイルフィールドにしたい場合は`as: :file`を付ける
 - ラジオボタンにしたい場合は`f.input_field :カラム名, as: :radio_buttons`とする
 - セレクトボックスにしたい場合は`collection: 選択肢の配列`とする。（`collection`オプションが渡された場合はデフォルトでセレクトボックスになる）
-- 複数選択可能なセレクトボックスにしたい場合は、上記に加えて`include_blank: false, input_html: { multiple: true }`を付ける
+  - 初期選択値を空欄にしたい場合は`include_blank: true`、したくなければ`false`を付ける
+- ファイルフィールドやセレクトボックス等を複数選択可能にしたい場合は、`input_html: { multiple: true }`を付ける
+- `has_one_attached`や`has_many_attached`関連付けを使う場合は、`f.input :関連名, as: :file`とすればOK
 - 他にも色々あるようなので、詳しくは[公式ドキュメント](https://github.com/heartcombo/simple_form)参照
 
 #### 補足情報：select2とは？

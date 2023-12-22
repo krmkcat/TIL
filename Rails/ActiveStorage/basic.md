@@ -63,6 +63,18 @@ end
 ### 参考リンク
 [参考記事](https://qiita.com/ma2yama/items/b1f138cf92d4fc6a7635)
 
+## 関連するクラス
+### ActiveStorage::Attachment
+ - アップロードされたファイル（画像、動画など）とRailsのモデルを繋げる「中間」のオブジェクト
+ - たとえば、ユーザーのプロフィール画像や商品の写真など、モデルに関連付けられたファイルがある場合、その関連を管理するのがこいつ
+### ActiveStorage::Attached
+- Railsモデルにファイルが添付されているかどうかを管理するためのモジュール
+- 例えば、ユーザーモデルにhas_one_attached :avatarと書くと、そのユーザーには一つのアバター画像が添付されることになる。Attachedはその添付されたファイルを扱うためのインターフェースを提供する
+### ActiveStorage::Blob
+- アップロードされたファイルの実際の内容やメタデータ（ファイル名やファイルタイプなど）を持っているオブジェクト
+- ファイルの実データはストレージサービス（Amazon S3やGoogle Cloud Storageなど）に保存され、Blobはそのデータへの参照を持っている
+
+
 ## 参考リンク
 - [Railsガイド](https://railsguides.jp/active_storage_overview.html)
 - [variantについての記事](https://prograshi.com/framework/rails/active-storage_variant/)
