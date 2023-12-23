@@ -24,6 +24,11 @@ Userモデル内に以下のように記述する
 ```
 
 # 便利なメソッド
+
+## 関連名
+- `モデルオブジェクト.関連名`で、対応する`ActiveStorage::Attached`オブジェクトを返す
+- 基本的にはこの後ろにさらにメソッドをチェインすることで、`Attached`を介して添付ファイルにアクセスし様々な処理を実行する
+
 ## attached?
 - `@user.avatar.attached?`で`@user`に`avatar`が添付されていれば`true`、されていなければ`false`を返す
 
@@ -58,24 +63,41 @@ end
     3. ダイレクトアップロードを利用する
 
 ## metadata[:属性名]
-- ファイルのメタデータを取得できる
+- `ActiveStorage::Attached`オブジェクトに対して実行すると、対応するファイルのメタデータを取得できる
 - 例として、`metadata[:width]`とすればそのファイルの`width`の値が取り出せる
 ### 参考リンク
 [参考記事](https://qiita.com/ma2yama/items/b1f138cf92d4fc6a7635)
 
-## 関連するクラス
-### ActiveStorage::Attachment
+## id
+- `ActiveStorage::Attached`オブジェクトに対して実行すると、対応する`ActiveStorage::Attachment`オブジェクトのidを返す
+
+## [n]
+- `ActiveStorage::Attached::Manyオブジェクト[数値]`とすると、対応する`ActiveSrorage::Attachment`オブジェクトのコレクションからn番目のものを抜き出せる（もちろん0番始まり）
+- (メソッドではない気がするがとりあえずここに載せておく)
+
+## purge
+- `ActiveStorage系のオブジェクト.purge`で、対応するファイルとそのメタデータをストレージから削除する
+- 基本的には他のメソッド同様`Attached`に対して使うことが多いが、ほか2種に対しても使えるには使える
+- とはいえBlobには通常使わない。BlobがAttachmentを介して紐づけられていない場合（どんな状況？）は`blob.purge`も可能
+
+# 関連するクラス
+## ActiveStorage::Attachment
  - アップロードされたファイル（画像、動画など）とRailsのモデルを繋げる「中間」のオブジェクト
  - たとえば、ユーザーのプロフィール画像や商品の写真など、モデルに関連付けられたファイルがある場合、その関連を管理するのがこいつ
-### ActiveStorage::Attached
+## ActiveStorage::Attached
 - Railsモデルにファイルが添付されているかどうかを管理するためのモジュール
 - 例えば、ユーザーモデルにhas_one_attached :avatarと書くと、そのユーザーには一つのアバター画像が添付されることになる。Attachedはその添付されたファイルを扱うためのインターフェースを提供する
-### ActiveStorage::Blob
+## ActiveStorage::Blob
 - アップロードされたファイルの実際の内容やメタデータ（ファイル名やファイルタイプなど）を持っているオブジェクト
 - ファイルの実データはストレージサービス（Amazon S3やGoogle Cloud Storageなど）に保存され、Blobはそのデータへの参照を持っている
+## イメージ的には…
+Attachedに「このファイル〇〇したいんだけど」って言うと裏でBlobやAttachmentとなんかいい感じに連携してストレージ上にあるファイルの実体をどうこうしてくれる
+
+# signed_idとは
+URLの生成等に使う推測しづらいid。uuidのようなもの。直接Blobにアクセスするのではなく`signed_id`を使って参照するようにするとより安全。
 
 
-## 参考リンク
+# 参考リンク
 - [Railsガイド](https://railsguides.jp/active_storage_overview.html)
 - [variantについての記事](https://prograshi.com/framework/rails/active-storage_variant/)
 - [`processed`についての記事](https://zenn.dev/meimei_kr/articles/50138b90cbdde8)
