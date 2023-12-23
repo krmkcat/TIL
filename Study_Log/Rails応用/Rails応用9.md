@@ -483,9 +483,9 @@ Swiper関係の正解がま〜じでわからん…。こういうのこそ技�
 - [ ] `button_to`と`link_to`
 - [ ] `link_to`にパラメータを付与する方法
 - [ ] `has_many_attached`について
-- [ ] ActiveStorageのオブジェクトについて
-  - [ ] それぞれの違い
-  - [ ] `signed_id`
+- [x] ActiveStorageのオブジェクトについて
+  - [x] それぞれの違い
+  - [x] `signed_id`
 - [ ] npmとCDN
 - [ ] カスタムバリデーター
 - [ ] `helper_method`
@@ -547,3 +547,12 @@ ActiveStorage::Attachedの役割がどうにもイメージしづらいんだけ
 >その通りだね。ActiveStorage::Attachedは、実際のファイルデータ（ActiveStorage::Blob）とRailsアプリケーション内のモデル（例えばsite）との間に立って情報を取り持つ役割をしている。ユーザーはActiveStorage::Attachedを通じて添付ファイルを扱い、ファイルのアップロードや表示などの操作を行えるようになっているんだ。
 
 今日はここまで。明日は今日わかったことをまとめることから始めよう。
+
+# 2023.12.23
+ActiveStorageに関するまとめから再開。
+
+`purge`は結局`Attached`、`Attachement`、`Blob`の全部に対して使えるでいいんだっけ？再度ロボらんてくんにきいてみよう。
+
+いちおう全部に対して使えるけど、Blobに対して使うことは通常ないとのこと。BlobがAttachmentを介して紐づけられていない場合（そんなことあるのか？）は`blob.purge`も可能だと。
+
+今日はここまで。明日も復習の続き。
