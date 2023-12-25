@@ -60,11 +60,22 @@ end
 
 ### attach_file
 - `attach_file 'フィールド名等', ファイルパス`で指定したファイル選択フィールドで指定したファイルを選択
+- ファイルパスを配列にすれば複数ファイルを同時に選択することができる
+
+### fixture_file_upload
+- `fixture_file_upload('ファイルパス', 'ファイルタイプ')`でファイルのアップロードをシミュレートできる
+- 例えば`file = fixture_file_upload('spec/fixtures/sample.png', 'image/png')`で、fileオブジェクトをフォームにファイルが添付されたときのパラメータと同じように扱える
+- ファイルパスの設定は`rails_helper.rb`等のヘルパーファイル内に`config.fixture_path = "#{::Rails.root}/spec/fixtures"`のように記述する
+- 参考リンク：[RSpecでテストデータ用にファイルを読み込む](https://woshidan.hatenadiary.jp/entry/2021/01/03/195432)
 
 ### sleep
 - `sleep 秒数`で指定の秒数Capybaraを一時停止させられる
 - 処理が追いつかなかった結果テストが失敗するのを避けるために使うが、現在はあまり推奨されていない模様
 - 例えばページ遷移を待ってから次の処理をしたい場合は、`sleep`を使う代わりに遷移後のページに含まれる要素が存在するかの確認を間にはさむなどすると良い
+
+### save_and_open_page
+- `save_and_open_page`で、その時点でのページをブラウザで開く。テストが上手く動かないときのデバッグに便利
+- ローカル環境の設定によっては使えないようだ
 
 ## その他
 ### status_code
