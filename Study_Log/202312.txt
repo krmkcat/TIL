@@ -97,3 +97,7 @@ Rails応用9
 12/25
 Rails応用9
 1h
+
+12/26
+スラスラわかるJavaScript
+1.5h
