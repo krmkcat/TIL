@@ -20,7 +20,7 @@
         dummyContent.textContent += ` テキスト ${i} `;
       }
 
-      window.addEventListener('scroll', function() {
+      window.addEventListener('scroll', function () {
         const button = document.querySelector('.moveToTop');
         if (window.scrollY >= 200) {
           button.style.display = 'block';
@@ -28,9 +28,9 @@
           button.style.display = 'none';
         }
       });
-      
+
       const button = document.querySelector('.moveToTop');
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function () {
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
