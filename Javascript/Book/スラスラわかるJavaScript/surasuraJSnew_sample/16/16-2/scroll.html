@@ -22,7 +22,7 @@
 
       window.addEventListener('scroll', function () {
         const button = document.querySelector('.moveToTop');
-        if (window.scrollY >= 200) {
+        if (window.scrollY >= document.body.clientHeight / 2) {
           button.style.display = 'block';
         } else {
           button.style.display = 'none';
