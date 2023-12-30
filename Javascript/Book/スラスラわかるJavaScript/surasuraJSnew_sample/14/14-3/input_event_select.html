@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select class="select">
+      <option value=""></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+    <script>
+      const select = document.querySelector('.select');
+      select.addEventListener('input', function (event) {
+        const value = event.currentTarget.value;
+        console.log(`${value}が選択されました`);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form action="./form.html" method="POST">
+      <div>
+        名前
+        <input type="text" name="name">
+      </div>
+      
+      <div>
+        朝ごはんは何派？
+        <input type="radio" name="breakfast" value="ご飯">ご飯派
+        <input type="radio" name="breakfast" value="パン">パン派
+      </div>
+      
+      <div>
+        好きな食べ物
+        <input type="checkbox" name="food[]" value="お寿司">お寿司
+        <input type="checkbox" name="food[]" value="ラーメン">ラーメン
+        <input type="checkbox" name="food[]" value="カレーライス">カレーライス
+      </div>
+      
+      <div>
+        好きなフルーツ
+        <select name="fruit">
+          <option value="りんご">りんご</option>
+          <option value="みかん">みかん</option>
+          <option value="バナナ">バナナ</option>
+        </select>
+      </div>
+      
+      <button type="submit">送信する</button>
+    </form>
+  </body>
+</html>

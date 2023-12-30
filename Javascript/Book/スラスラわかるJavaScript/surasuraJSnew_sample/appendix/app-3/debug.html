@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select class="lang">
+      <option>言語を選んでください</option>
+      <option value="ja">日本語</option>
+      <option value="en">英語</option>
+      <option value="fr">フランス語</option>
+    </select>
+    <script>
+      const select = document.querySelector('.lang');
+      select.addEventListener('input', function(event) {
+        let value = event.currentTarget.value;
+        debugger;
+        if (value == 'ja') {
+          alert('こんにちは');
+        } else if (value = 'en') {
+          alert('Hello');
+        } else if (value == 'fr') {
+          alert('Bonjour');
+        }
+      });
+    </script>
+  </body>
+</html>

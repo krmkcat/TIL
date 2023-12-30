@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    span {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<button type="button">
+  <span>span 要素です</span>
+  ボタン要素です
+</button>
+<script>
+  const button = document.querySelector('button');
+  button.addEventListener('click', function (event) {
+    console.log(event.currentTarget);
+    console.log(event.target);
+  });
+</script>
+</body>
+</html>

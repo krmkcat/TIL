@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .done {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li class="task">
+    <input type="checkbox"> Task A
+  </li>
+  <li class="task">
+    <input type="checkbox"> Task B
+  </li>
+</ul>
+<script>
+  const checkboxes = document.querySelectorAll('.task input');
+  for (let checkbox of checkboxes) {
+    checkbox.addEventListener('click', function(event) {
+      const checkbox = event.currentTarget;
+      const task = checkbox.closest('li');
+      if (checkbox.checked) {
+        task.classList.add('done');
+      } else {
+        task.classList.remove('done');
+      }
+    });
+  }
+</script>
+</body>
+</html>
