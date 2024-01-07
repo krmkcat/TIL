@@ -3,14 +3,18 @@
 ## eq
 - `eq(指定の値)`とすることで指定した値に等しいか確認する
 
+### 参考リンク
+- [RSpecのequal, eql, eq, be の違い](https://engineerflies.blogspot.com/2012/06/rspecequal-eql-eq-be.html)
+
 ## be系
-- `be true`：trueかどうか確認する
-- `be false`：falseかどうか確認する
+- `be truthy`：true判定かどうか確認する
+  - 厳密に`true`そのものかどうか確認したければ`eq(true)`を使う
+- `be falsey`/`be_falsy`：false判定かどうか確認する
+  - 厳密に`false`そのものかどうか確認したければ`eq(false)`を使う
 - `be_nil`：nilかどうか確認する。アンダーバーが必要なので注意
 - `be_empty`：配列や文字列、ハッシュ等が空であるかどうかを確認する
 - `be_valid`：オブジェクトがバリデーションに通るかどうか確認する
 - `be_invalid`：`be_valid`の逆
-
 
 ## have系
 
