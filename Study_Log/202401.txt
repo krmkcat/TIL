@@ -25,3 +25,7 @@ Rails応用10
 1/7
 Rails応用10
 2h
+
+1/8
+Rails応用10、APIについて
+2.5h
