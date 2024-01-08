@@ -1,0 +1,6 @@
+# 日時関連
+
+## 参考リンク
+- [RailsのActiveRecordで今日・昨日など特定の日に保存されたレコードを取得](https://easyramble.com/get-today-record-with-rails-activerecord.html)
+- [Railsでの日付操作でよく使うものまとめ](https://qiita.com/mmmm/items/efda48f1ac0267c95c29)
+- [ActiveSupport::TimeWithZone を型変換せずにイテレートする](https://qiita.com/QUANON/items/fa110d3dd5ddaaf78c61)

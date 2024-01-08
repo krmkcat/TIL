@@ -29,4 +29,5 @@ Settings.default_url_options.to_h
 ```
 
 ## 参考リンク
+- [公式ドキュメント](https://github.com/rubyconfig/config)
 - [gem configを理解する ~ configを使った定数管理の方法](https://qiita.com/sazumy/items/8d3b06d0d42af114a383)
