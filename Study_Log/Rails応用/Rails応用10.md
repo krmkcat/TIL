@@ -149,9 +149,9 @@ RSpec3から`be_true`と`be_false`が`be_truthy`と`be_falsey`に変わったら
 とはいえ結局この後が時間かかるんだよな。諸々まとめ開始。まとめなきゃいけないのは、
 
 - [x] ActionMailer関連
-- [ ] letter_opener_web関連
+- [x] letter_opener_web関連
 - [x] config関連
-- [ ] ActionMailer周りのテスト方法
+- [x] ActionMailer周りのテスト方法
 
 こんなとこか。  
 まずはActionMailerからいこう。
@@ -159,3 +159,10 @@ RSpec3から`be_true`と`be_false`が`be_truthy`と`be_falsey`に変わったら
 次、config。
 
 よし。今日はここまで。明日はletter_opener_webからやろうかな。
+
+# 2024.1.8
+letter_opener_webのまとめやる。
+
+OK！ラスト、ActionMailer周りのテスト。
+
+できた。復習OK。これにてRails応用完了。お疲れ様でした。
