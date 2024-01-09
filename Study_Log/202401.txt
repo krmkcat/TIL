@@ -29,3 +29,7 @@ Rails応用10
 1/8
 Rails応用10、APIについて
 2.5h
+
+1/9
+アプリ開発カリキュラム、ActiveRecord演習
+3.5h
