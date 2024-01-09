@@ -57,6 +57,10 @@
   # 例
   Article.joins(:tags).where(tags: { name: 'tag1' })
   ```
+  - 中間テーブルを介して結合したテーブルの属性を使いたい場合は以下のような書き方になる
+    ```rb
+    Article.joins(article_category: :categories).where(categories: { name: 'category1' })
+    ```
 
 ## find_or_create_by(条件)
 - モデル（正確にはActiveRecord::Relations？）に対して使う
@@ -97,6 +101,9 @@
 - レコードの重複を取り除く
 - `distinct`を呼び出した時点で重複を取り除くのではなく、発行されるSQL文が`SELECT DISTINCT * ...`になる
 - そのため、`distinct`の後に`where`などをメソッドチェーンしても、きちんと最終的な結果から重複レコードを取り除いたオブジェクトが返る
+
+## select(カラム名1, ...)
+- SQLの`SELECT`句を発行する（指定したカラムのみを抽出する）
 
 ## 【番外】関連性の高いメソッド
 - [`attribute_accessor`](../methods.md#attribute_accessor)
