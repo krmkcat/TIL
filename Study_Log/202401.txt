@@ -37,3 +37,7 @@ Rails応用10、APIについて
 1/10
 休み
 0h
+
+1/11
+ActiveRecord演習
+1h

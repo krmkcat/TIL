@@ -38,3 +38,36 @@ Category.select(:category_id, :name, 'count(*) as number_of_film').joins(:film_c
 ```
 
 ん〜だめだわからん。今日はここまで。明日は休みなので明後日続きやる。…いや明後日も特別講座あるから明々後日か。
+
+# 2024.1.11
+特別講座始まるまでの間いちおうやる。
+
+SQLをRailsコードに直すのにてこずってたんだっけ。`select`句の引数をキーじゃなく文字列にして直接SQL書いちゃうか。
+
+```rb
+Category.select('category.category_id, category.name, count(*) as number_of_film').joins(:film_categories).group(:category_id).having('number_of_film >= ?', '60').order(number_of_film: :desc)
+```
+
+お、いけた！あとはこれを60以上のみに絞り込んで降順表示するだけだ。
+
+できた！`order`の引数の書き方どうにも慣れんなあ。
+
+よし次。問題6。
+```rb
+Actor.find_by(first_name: 'JOE', last_name: 'SWANK').films.select(:film_id, :title)
+```
+
+OK！次、問題7。
+```rb
+Actor.find_by(first_name: 'JOE', last_name: 'SWANK').films.where('length >= ?', '100').select(:film_id, :title, :length)
+```
+
+次、問題8。
+```rb
+Actor.find_by(first_name: 'JOE', last_name: 'SWANK').films.joins(film_categories: :category).where(category: { name: 'Action' }).select(:film_id, :title)
+```
+
+次、問題9。…思ったら出たよ売上。これの算出方法がわからん。
+
+ロボらんてくんに助言を求めた。`rental_rate`にレンタルされた回数をかければいいのでは？とのこと。それでいってみよう。  
+今日はここまで。明日は↑を試すことから始める。
