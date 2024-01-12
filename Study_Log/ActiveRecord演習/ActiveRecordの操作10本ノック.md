@@ -67,7 +67,23 @@ Actor.find_by(first_name: 'JOE', last_name: 'SWANK').films.where('length >= ?', 
 Actor.find_by(first_name: 'JOE', last_name: 'SWANK').films.joins(film_categories: :category).where(category: { name: 'Action' }).select(:film_id, :title)
 ```
 
-次、問題9。…思ったら出たよ売上。これの算出方法がわからん。
+次、問題9。…と思ったら出たよ売上。これの算出方法がわからん。
 
 ロボらんてくんに助言を求めた。`rental_rate`にレンタルされた回数をかければいいのでは？とのこと。それでいってみよう。  
 今日はここまで。明日は↑を試すことから始める。
+
+# 2024.1.12
+`rental_rate`が1回のレンタルにかかる料金では？とロボらんてくんに助言をもらったので、その説でいってみる。問9じゃなくて飛ばした5からとりかかるか。
+
+というわけで問題4。あるfilmがレンタルされた回数を取得するには、そのfilmのfilm_idを含むinventoryのinventory_idを取得して、そのinventory_idを含むrentalがいくつあるかを調べる。…けっこう複雑じゃないか？ほんとに中級？これをさらにカテゴリごとに集計するんでしょ？？まあいいやとにかく書き始めよう。  
+だいぶ複雑な気がするから、まずは"SUNRISE LEAGUE"というfilmのレンタル回数を取得することから始める。
+```rb
+Rental.joins(inventory: :film).where(film: { title: 'SUNRISE LEAGUE' }).count
+```
+よし、回数が取得できた。ので、今度はこれに`rental_rate`をかけて売上を取得する。  
+…これひょっとして`IN`つかうやつか？一つの表では無理な気がするんだよな。
+```rb
+Film.joins(inventories: :rental).
+```
+
+今日はここまで。明日も少し続きやる。

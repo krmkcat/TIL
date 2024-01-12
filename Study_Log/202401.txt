@@ -41,3 +41,7 @@ Rails応用10、APIについて
 1/11
 ActiveRecord演習
 1h
+
+1/12
+ActiveRecord演習
+1h
