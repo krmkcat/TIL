@@ -45,3 +45,7 @@ ActiveRecord演習
 1/12
 ActiveRecord演習
 1h
+
+1/13
+ActiveRecord演習
+4h
