@@ -73,5 +73,9 @@ WHERE カラム名 IN(
 ## データベースコンソール
 `rails dbconsole`でデータベースコンソールを使用できる。
 
+## 算術演算子
+複数カラムの値（すべて数値の場合に限るが）を四則演算できる。`SELECT`句で使う。
+
 ## 参考リンク
 - [SQL– category –](https://www.sejuku.net/blog/category/programming-language/sql)
+- [【SQLの基礎知識③】 SQLにおける算術演算子（四則演算）の基本](https://ichilv.com/basic-sql-3/#toc3)
