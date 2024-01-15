@@ -108,7 +108,7 @@ Category.select('category.category_id, category.name').find_by(name: 'Sports').f
 Film.joins(inventories: :rentals).select('film.title, film.rental_rate, count(*)').find_by(title: 'SUNRISE LEAGUE')
 ```
 
-集約関数（`count`とか）を使う場合は基本的に`group`も使わなきゃいけないらしい。あと、`group`と`select`を同時に使う場合は`select`するカラムを`group`の対象に含めなきゃいけないらしい。（←**これはちょっとほんとかあやしい**）知らんかった…。それを踏まえてもうちょい考えてみる。
+集約関数（`count`とか）を使う場合は基本的に`group`も使わなきゃいけないらしい。あと、`group`と`select`を同時に使う場合は`select`するカラムを`group`の対象に含めなきゃいけないらしい。知らんかった…。それを踏まえてもうちょい考えてみる。
 ```rb
 Film.joins(inventories: :rentals)
   .group(:title, :rental_rate)
@@ -217,3 +217,9 @@ Category
 できたーーーー！ついに全クリ！長い道のりだった…。  
 というわけで今日はここまで。次は今回学んだことをできる範囲でまとめる。
 
+# 2024.1.15
+今日はこの演習で学んだことのまとめ。ただし今日中に終わらなかった分はもういったんスルーすることにする。
+
+まずは毎回忘れるSQLの基本文法について軽くまとめとこう。
+
+よし！概ねOKだろう。明日はRuby応用に進む前に、一旦色々整理して考え直してみることにする。やらなきゃいけないことが溢れちゃってわけわからなくなってしまった。

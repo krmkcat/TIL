@@ -53,3 +53,7 @@ ActiveRecord演習
 1/14
 休み
 0h
+
+1/15
+ActiveRecord演習
+2.5h
