@@ -1,13 +1,23 @@
 # SQLコマンド
 
-## 基本
-```sql
-SELECT カラム名 FROM テーブル名
-WHERE 条件;
+## 使用するDBを指定
+```shell
+USE FB名;
 ```
 
-## SHOW TABLES;
-カレントデータベースに含まれるテーブル一覧を取得
+## カレントDBに含まれるテーブル一覧を取得
+```shell
+SHOW TABLES;
+```
 
-## SHOW COLUMNS FROM テーブル名;
-指定したテーブルに含まれるカラム一覧を取得
+## 特定のテーブルに含まれるカラム一覧を取得
+```shell
+SHOW COLUMNS FROM テーブル名;
+
+SHOW COLUMNS WHERE句;
+
+SHOW COLUMNS LIKE句;
+```
+
+## 参考リンク
+- [カラムに関する情報を取得する](https://www.javadrive.jp/mysql/table/index3.html)
