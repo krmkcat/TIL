@@ -57,3 +57,7 @@ ActiveRecord演習
 1/15
 ActiveRecord演習
 2.5h
+
+1/16
+休み（スケジュール立て直し）
+0h
