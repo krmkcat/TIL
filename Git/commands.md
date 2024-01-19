@@ -39,4 +39,7 @@ https://backlog.com/ja/git-tutorial/stepup/15/
 名前を変更したいブランチに移動したうえで以下のコマンドを実行。
 ```shell
 $ git branch -m 変更後の名前
-``````
+```
+
+## 参考リンク
+- [ローカルでブランチ切り忘れてコミットした時はこれ](https://zenn.dev/swata_dev/articles/3e67336b635059)
