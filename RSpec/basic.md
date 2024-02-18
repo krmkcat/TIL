@@ -12,12 +12,12 @@
 ```rb
 FactoryBot.define do
   factory :user do
-     introduce { '自己紹介です。'　}
+     introduce { '自己紹介です。' }
      sequence(:name) { |n| "user_#{n}" }
      role { :general }
   end
 
-  trait :admin　do
+  trait :admin do
     role { :admin }
   end
 end
