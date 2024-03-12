@@ -41,5 +41,32 @@ https://backlog.com/ja/git-tutorial/stepup/15/
 $ git branch -m 変更後の名前
 ```
 
+## 未コミットの変更を一時退避
+```shell
+git stash -u
+```
+
+## 一時退避した変更一覧を見る
+```shell
+git stash list
+```
+
+## 一時退避した変更を現在のブランチに戻す
+```shell
+git stash apply stash@{数字}
+```
+↑だとステージング済の変更もステージングされていない状態で戻る。  
+ステージング済みの変更をステージング済みのままもどしたければ`--index`を最後につける。
+
+## 一時退避した変更を消す
+```shell
+git stash drop stash@{数字}
+```
+
+## 一時退避した変更を戻すと同時にリストから消す
+```shell
+git stash pop stash@{数字}
+```
+
 ## 参考リンク
 - [ローカルでブランチ切り忘れてコミットした時はこれ](https://zenn.dev/swata_dev/articles/3e67336b635059)
